@@ -20,6 +20,10 @@ describe('DebugLifeCycle Decorator', () => {
         return new TestClass();
     }
 
+    const consoleLogSpy = jest.spyOn(console, 'log').mockImplementation();
+    const consoleLogGroupSpy = jest.spyOn(console, 'group').mockImplementation();
+    const consoleLogGroupEndSpy = jest.spyOn(console, 'groupEnd').mockImplementation();
+
     afterEach(() => {
             jest.clearAllMocks();
         }
@@ -56,7 +60,7 @@ describe('DebugLifeCycle Decorator', () => {
 
     test('should accept single string lifecycle method as options and call default log function', () => {
         const testClass = makeTestClass('ngOnInit');
-        const consoleLogSpy = jest.spyOn(console, 'log');
+
         testClass.ngOnInit();
         testClass.ngOnDestroy();
         expect(consoleLogSpy).toHaveBeenCalledTimes(1);
@@ -65,7 +69,6 @@ describe('DebugLifeCycle Decorator', () => {
 
     test('should accept an array of lifecycle methods as options and call default log function for each', () => {
         const testClass = makeTestClass(['ngOnInit', 'ngOnDestroy']);
-        const consoleLogSpy = jest.spyOn(console, 'log');
         testClass.ngOnInit();
         testClass.ngOnDestroy();
         testClass.ngAfterViewInit();
@@ -77,10 +80,6 @@ describe('DebugLifeCycle Decorator', () => {
     test('should use default logging style for ngOnChanges lifecycle hook', () => {
         const testClass = makeTestClass();
 
-        const consoleLogSpy = jest.spyOn(console, 'log');
-        const consoleLogGroupSpy = jest.spyOn(console, 'group');
-        const consoleLogGroupEndSpy = jest.spyOn(console, 'groupEnd');
-
         testClass.ngOnChanges({prop: new SimpleChange(1, 2)});
         expect(consoleLogGroupSpy).toHaveBeenCalledWith('ngOnChanges called for TestClass');
         expect(consoleLogSpy).toHaveBeenCalledWith('prop changed from 1 to 2');
@@ -91,7 +90,6 @@ describe('DebugLifeCycle Decorator', () => {
         const logFunc1 = jest.fn();
         const logFunc2 = jest.fn();
         const testClass = makeTestClass({logFuncMap: {ngOnInit: logFunc1, ngOnDestroy: logFunc2}});
-        const consoleLogSpy = jest.spyOn(console, 'log');
         testClass.ngOnInit();
         testClass.ngOnDestroy();
         testClass.ngAfterViewInit();
@@ -108,7 +106,7 @@ describe('DebugLifeCycle Decorator', () => {
             logFunc: logFunc1,
             logFuncMap: {ngOnDestroy: logFunc2}
         });
-        const consoleLogSpy = jest.spyOn(console, 'log');
+
         testClass.ngOnInit();
         testClass.ngOnDestroy();
         testClass.ngAfterViewInit();
