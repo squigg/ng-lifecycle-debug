@@ -8,12 +8,12 @@ Minimal markup - no more adding console logs to see what your components are doi
 
 ## Installation
 
-`npm install --save-dev ng-debug-lifecycle`
+`npm install --save-dev ng-lifecycle-debug`
 
 ## Usage
 
 ```typescript
-import { DebugLifeCycle } from 'ng-debug-lifecycle';
+import { DebugLifeCycle } from 'ng-lifecycle-debug';
 
 @DebugLifeCycle()
 @Component({
