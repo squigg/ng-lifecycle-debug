@@ -1,13 +1,15 @@
 {
   "name": "ng-lifecycle-debug",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Decorator to quickly add and remove logging for Angular lifecycle hooks in your components",
   "main": "dist/index.js",
   "scripts": {
     "build": "rm -rf ./dist && tsc",
     "prepublish": "rm -rf ./dist && npm test && npm run build",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "version": "git add -A",
+    "postversion": "git push && git push --tags"
   },
   "keywords": [
     "angular",
