@@ -1,6 +1,6 @@
 {
   "name": "ng-lifecycle-debug",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Decorator to quickly add and remove logging for Angular lifecycle hooks in your components",
   "main": "dist/index.js",
   "scripts": {
