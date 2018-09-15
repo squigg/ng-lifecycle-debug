@@ -1,0 +1,27 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "declaration": true,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2015",
+      "es2017",
+      "dom"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "lib",
+    "__tests__"
+  ]
+}

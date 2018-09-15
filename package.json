@@ -1,0 +1,53 @@
+{
+  "name": "ng-lifecycle-debug",
+  "version": "1.0.0",
+  "description": "Decorator to quickly add and remove logging for Angular lifecycle hooks in your components",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rm -rf ./dist && tsc",
+    "prepublish": "rm -rf ./dist && npm test && npm run build",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "keywords": [
+    "angular",
+    "lifecycle",
+    "debugging",
+    "debug"
+  ],
+  "author": "Steve Strugnell",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^23.3.2",
+    "jest": "^23.6.0",
+    "ts-jest": "^23.1.4",
+    "typescript": "^2.9.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "typings": "./dist/index.d.ts",
+  "repository": {
+    "url": "git+https://github.com/squigg/ng-lifecycle-debug.git"
+  },
+  "maintainers": [
+    {
+      "name": "Steve Strugnell"
+    }
+  ],
+  "homepage": "https://github.com/squigg/ng-lifecycle-debug#readme",
+  "bugs": {
+    "url": "https://github.com/squigg/ng-lifecycle-debug/issues"
+  }
+}
