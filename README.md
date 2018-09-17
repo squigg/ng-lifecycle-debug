@@ -100,7 +100,6 @@ Options are passed as an object with one or more of the following keys:
 | `hooks: string[]`     | array of Angular lifecycle hooks to respond to                |
 | `logFunc: Function`   | specify a custom function for each hook                       |
 | `logFuncMap: Object`  | specify different functions for different lifecycle hooks, where the object key is the hook and the value is the function |
-| `useMap: boolean`     | whether or not to use the function map |
 
 Note: the default function map (that has a different output for `ngOnChanges`) is still used if a function is given as
 a single argument. For overriding it when
